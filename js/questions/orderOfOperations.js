@@ -1,3 +1,5 @@
+define([], function(){
+
 //Parameter randomStream should be an instance of the RandomStream class.
 var orderOfOperationsName = "Order Of Operations";
 
@@ -85,5 +87,9 @@ function orderOfOperationsQuestion(randomStream)
 };
 
 
+  return {'quizName': orderOfOperationsName,
+          'questionFunc' : orderOfOperationsQuestion};
+
+});
 
 

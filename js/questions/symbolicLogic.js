@@ -1,3 +1,5 @@
+define([], function(){
+
 //Parameter randomStream should be an instance of the RandomStream class.
 var symbolicLogicName = "Symbolic Logic Question";
 function symbolicLogicQuestion(randomStream)
@@ -124,4 +126,8 @@ function symbolicLogicQuestion(randomStream)
 
 };
 
+  return {'quizName': symbolicLogicName,
+          'questionFunc' : symbolicLogicQuestion};
+
+});
 

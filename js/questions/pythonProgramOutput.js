@@ -1,3 +1,7 @@
+
+define([], function()
+{
+
 RandomIdentifiers = 
    {
     one: ["foo","bar","baz","fiddle","faddle","bim","bam","quux","snork","snap"],
@@ -436,3 +440,9 @@ function pythonProgramOutputQuestion(randomStream)
   }
 }
 
+  return {'quizName' : pythonProgramOutputName,
+          'questionFunc' : pythonProgramOutputQuestion};
+
+}
+
+);

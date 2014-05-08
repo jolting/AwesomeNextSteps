@@ -1,3 +1,5 @@
+define([],function(){
+
 var CvariableTypeName = "C Variable Type";
 
 function CvariableTypeQuestion(randomStream)
@@ -99,4 +101,8 @@ function CvariableTypeQuestion(randomStream)
     };
 
 };
+  return {'quizName': CvariableTypeName,
+          'questionFunc' : CvariableTypeQuestion};
+
+});
 

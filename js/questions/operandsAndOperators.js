@@ -1,3 +1,5 @@
+define([], function(){
+
 //Parameter randomStream should be an instance of the RandomStream class.
 operandsAndOperatorsName = "Operands And Operators";
 
@@ -261,4 +263,8 @@ function operandsAndOperatorsQuestion(randomStream)
     };
 };
 
+  return {'quizName': operandsAndOperatorsName,
+          'questionFunc' : operandsAndOperatorsQuestion};
+
+});
 

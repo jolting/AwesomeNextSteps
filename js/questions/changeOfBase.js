@@ -1,3 +1,5 @@
+define([], function(){
+
 var changeOfBaseName = "Change Of Base";
 
 function changeOfBaseQuestion(randomStream)
@@ -62,5 +64,7 @@ function changeOfBaseQuestion(randomStream)
     };
 
 };
+  return {'quizName': changeOfBaseName,
+          'questionFunc' : changeOfBaseQuestion};
 
- 
+});

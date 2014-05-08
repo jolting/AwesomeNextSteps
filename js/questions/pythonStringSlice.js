@@ -1,3 +1,5 @@
+define([],function(){
+
 
 pythonStringSliceName = "Python String Slice";
 function pythonStringSliceQuestion(randomStream) {
@@ -159,5 +161,10 @@ function pythonStringSliceQuestion(randomStream) {
     };
 
 }
+
+  return {'quizName': pythonStringSliceName,
+          'questionFunc' : pythonStringSliceQuestion};
+
+});
 
 

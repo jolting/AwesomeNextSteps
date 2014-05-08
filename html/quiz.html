@@ -13,15 +13,20 @@
     <script>
       function loadQuestionType(questionTypeString, callback)
       {
-       var url= "../js/questions/" + questionTypeString + ".js";
-       var script = document.createElement('script');
+       if(!questionTypeString.match(/^[a-zA-Z0-9_]+$/))
+	throw "Invalid Question Type";
+       var url= "../js/questions/" + questionTypeString;
+       require([url],callback);
+/*       var script = document.createElement('script');
        script.src = url;
        script.onload = callback;
        document.head.appendChild(script);
+*/
       }
     </script>
     <script src="../purl/purl.js"></script>
     <script src="../js/quiz.js"></script>
+    <script src="../js/require.js"></script>
 </head>
 
 <body>
@@ -38,16 +43,14 @@
         
         var url = purl();
         /* we need to wait for the question to load */
-        function afterLoad() {	
+        function afterLoad(qmodule) {	
           var seed = parseInt(url.param("seed"),16);
           var num = url.param("numQuestions");
           var questionType = url.param("questionType");
         
-          var questionFunc = eval(questionType+"Question");
-          var quizName = eval(questionType+"Name");
 
-          var quiz = new Quiz(seed,num, questionFunc);
-          document.getElementById("quiztitle").innerHTML= quizName;
+          var quiz = new Quiz(seed,num, qmodule.questionFunc);
+          document.getElementById("quiztitle").innerHTML= qmodule.quizName;
 
           document.getElementById("questions").innerHTML += quiz.formatQuestionsHTML();
   	  document.getElementById("seed").innerHTML += "<h2>Quiz #: " + seed.toString(16).toUpperCase() + "</h2> <hr> <br>";
